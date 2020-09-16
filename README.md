@@ -12,8 +12,6 @@ discussion behind this and for reasoning why this isn't in core `@testing-librar
 npm install --save-dev flexible-testing-library-react
 ```
 
-This assumes you are using Jest for testing.
-
 ## Usage
 
 This mostly follows the API of React Testing Library but with one important difference:
@@ -59,7 +57,7 @@ screen.findBy(title('foo'), { timeout: 1000 }).something();
 // no need to pass the empty {} argument to title() any more!
 ```
 
-A new Jest matcher is also available:
+If you are using Jest, a new matcher is also available:
 
 ```jsx
 import { screen, render, labelText } from 'flexible-testing-library-react';
