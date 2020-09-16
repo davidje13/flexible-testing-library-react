@@ -1,4 +1,4 @@
-# Flexible React Testing Library
+# Flexible Testing Library React
 
 A thin wrapper around [React Testing Library](https://github.com/testing-library/react-testing-library)
 which makes using custom queries easier.
