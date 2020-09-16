@@ -9,7 +9,7 @@ module.exports = {
     root: __dirname,
     mains: {
       index: 'index',
-      'extend-expect': 'extend-expect',
+      '../extend-expect/index': 'extend-expect/index',
     },
   },
   use: [

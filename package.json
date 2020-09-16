@@ -4,13 +4,13 @@
   "description": "a more flexible wrapper around @testing-library/react",
   "files": [
     "build/**/*",
-    "extend-expect.d.ts"
+    "extend-expect/**/*"
   ],
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "exports": {
     ".": "./build/index.js",
-    "./extend-expect": "./build/extend-expect.js"
+    "./extend-expect": "./extend-expect/index.js"
   },
   "scripts": {
     "prebuild": "rewrite-tsconfig",
