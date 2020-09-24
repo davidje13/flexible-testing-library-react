@@ -221,7 +221,7 @@ configuration:
 The types for custom queries are:
 
 ```typescript
-import type Query from 'flexible-testing-library-react';
+import type { Query } from 'flexible-testing-library-react';
 
 const tableCell = (row: number, column: number): Query => ({
   description: `in column ${column}, row ${row}`,
