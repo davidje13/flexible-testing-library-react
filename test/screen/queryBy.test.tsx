@@ -24,6 +24,8 @@ describe('queryBy', () => {
 
   it('throws if multiple elements are found', () => {
     render(<TestComponent />);
-    expect(() => screen.queryBy(text('More text'))).toThrow('Found multiple elements with');
+    expect(() => screen.queryBy(text('More text'))).toThrow(
+      'Found multiple elements with',
+    );
   });
 });

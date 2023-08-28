@@ -7,8 +7,8 @@ describe('queryAllBy', () => {
     render(<TestComponent />);
     const items = screen.queryAllBy(text('More text'));
     expect(items).toHaveLength(2);
-    expect(items[0].getAttribute('data-testid')).toEqual('c');
-    expect(items[1].getAttribute('data-testid')).toEqual('d');
+    expect(items[0]!.getAttribute('data-testid')).toEqual('c');
+    expect(items[1]!.getAttribute('data-testid')).toEqual('d');
   });
 
   it('is bound to render results', async () => {

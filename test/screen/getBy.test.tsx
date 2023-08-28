@@ -17,11 +17,15 @@ describe('getBy', () => {
 
   it('throws if no elements are found', () => {
     render(<TestComponent />);
-    expect(() => screen.getBy(text('Nope'))).toThrow('Unable to find any element with');
+    expect(() => screen.getBy(text('Nope'))).toThrow(
+      'Unable to find any element with',
+    );
   });
 
   it('throws if multiple elements are found', () => {
     render(<TestComponent />);
-    expect(() => screen.getBy(text('More text'))).toThrow('Found multiple elements with');
+    expect(() => screen.getBy(text('More text'))).toThrow(
+      'Found multiple elements with',
+    );
   });
 });

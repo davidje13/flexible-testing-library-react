@@ -7,4 +7,3 @@ export default interface Query {
     getAll?: (container: HTMLElement) => HTMLElementList;
 }
 export {};
-//# sourceMappingURL=Query.d.ts.map

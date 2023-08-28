@@ -15,16 +15,18 @@ describe('textFragment', () => {
     render(<Component />);
     const items = screen.queryAllBy(textFragment('b'));
     expect(items).toHaveLength(3);
-    expect(items[0].getAttribute('data-testid')).toEqual('a');
-    expect(items[1].getAttribute('data-testid')).toEqual('b');
-    expect(items[2].getAttribute('data-testid')).toEqual('c');
+    expect(items[0]!.getAttribute('data-testid')).toEqual('a');
+    expect(items[1]!.getAttribute('data-testid')).toEqual('b');
+    expect(items[2]!.getAttribute('data-testid')).toEqual('c');
   });
 
   it('shows a helpful error if no items are found', () => {
     render(<Component />);
-    expect(() => screen.getAllBy(textFragment('Nope'))).toThrow([
-      'Unable to find any element with the text Nope. ',
-      'This could be because the text is broken up by multiple elements.',
-    ].join(''));
+    expect(() => screen.getAllBy(textFragment('Nope'))).toThrow(
+      [
+        'Unable to find any element with the text Nope. ',
+        'This could be because the text is broken up by multiple elements.',
+      ].join(''),
+    );
   });
 });

@@ -7,11 +7,11 @@ import * as baseQueries from './baseQueries';
 const body = typeof document !== 'undefined' ? document.body : undefined;
 let screen = {
   debug: baseScreen.debug,
-  ...getQueriesForElement(body!, baseQueries),
+  ...getQueriesForElement<typeof baseQueries>(body!, baseQueries),
 };
 if (!body) {
   screen = new Proxy(screen, {
-    get(target, key): unknown {
+    get(_, key): unknown {
       if (Object.prototype.hasOwnProperty.call(baseScreen, key)) {
         return baseScreen[key as keyof typeof baseScreen];
       }

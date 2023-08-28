@@ -14,12 +14,13 @@ describe('testId', () => {
     render(<Component />);
     const items = screen.queryAllBy(testId('bar'));
     expect(items).toHaveLength(1);
-    expect(items[0].getAttribute('data-testid')).toEqual('bar');
+    expect(items[0]!.getAttribute('data-testid')).toEqual('bar');
   });
 
   it('shows a helpful error if no items are found', () => {
     render(<Component />);
-    expect(() => screen.getAllBy(testId('Nope')))
-      .toThrow('Unable to find any element with the test ID Nope.');
+    expect(() => screen.getAllBy(testId('Nope'))).toThrow(
+      'Unable to find any element with the test ID Nope.',
+    );
   });
 });

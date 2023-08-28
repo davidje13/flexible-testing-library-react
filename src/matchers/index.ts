@@ -1,5 +1,3 @@
 import { toContainElementWith } from './toContainElementWith';
 
-export {
-  toContainElementWith,
-};
+export { toContainElementWith };

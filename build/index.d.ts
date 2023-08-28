@@ -12,4 +12,3 @@ export declare function render(ui: ReactElement, options?: RenderOptions): Rende
 export { screen };
 export * from './baseQueries';
 export * from './queries';
-//# sourceMappingURL=index.d.ts.map

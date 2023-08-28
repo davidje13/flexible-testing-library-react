@@ -76,7 +76,7 @@ expect(screen).not.toContainElementWith(labelText('nope'));
 ### `getBy`
 
 ```javascript
-getBy(title('hello'))
+getBy(title('hello'));
 ```
 
 Returns en element, or throws an exception if no elements were found (or multiple elements
@@ -85,7 +85,7 @@ matched).
 ### `getAllBy`
 
 ```javascript
-getAllBy(title('hello'))
+getAllBy(title('hello'));
 ```
 
 Returns a list of elements, or throws an exception if no elements were found.
@@ -93,7 +93,7 @@ Returns a list of elements, or throws an exception if no elements were found.
 ### `queryBy`
 
 ```javascript
-queryBy(title('hello'))
+queryBy(title('hello'));
 ```
 
 Returns an element, or `null` if no elements were found, or throws an exception if multiple
@@ -102,7 +102,7 @@ elements matched.
 ### `queryAllBy`
 
 ```javascript
-queryAllBy(title('hello'))
+queryAllBy(title('hello'));
 ```
 
 Returns a list of elements (which could be empty).
@@ -110,8 +110,8 @@ Returns a list of elements (which could be empty).
 ### `findBy`
 
 ```javascript
-await findBy(title('hello'))
-await findBy(title('hello'), { timeout: 1000 })
+await findBy(title('hello'));
+await findBy(title('hello'), { timeout: 1000 });
 ```
 
 Waits until at least one matching element exists and returns it, or throws if the
@@ -124,8 +124,8 @@ DOM Testing Library's [`waitFor`](https://testing-library.com/docs/dom-testing-l
 ### `findAllBy`
 
 ```javascript
-await findAllBy(title('hello'))
-await findAllBy(title('hello'), { timeout: 1000 })
+await findAllBy(title('hello'));
+await findAllBy(title('hello'), { timeout: 1000 });
 ```
 
 Waits until at least one matching element exists and returns a list of all matches,
@@ -142,21 +142,21 @@ each query is available here.
 
 Examples (note that the options can be omitted but are shown here to demonstrate their usage):
 
-| Function | Example | Upstream Docs |
-|----------|---------|---------------|
-| `labelText` | `getAllBy(labelText('hello', { exact: false }))` | [ByLabelText](https://testing-library.com/docs/dom-testing-library/api-queries#bylabeltext) |
+| Function          | Example                                                | Upstream Docs                                                                                           |
+| ----------------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- |
+| `labelText`       | `getAllBy(labelText('hello', { exact: false }))`       | [ByLabelText](https://testing-library.com/docs/dom-testing-library/api-queries#bylabeltext)             |
 | `placeholderText` | `getAllBy(placeholderText('hello', { exact: false }))` | [ByPlaceholderText](https://testing-library.com/docs/dom-testing-library/api-queries#byplaceholdertext) |
-| `text` | `getAllBy(text('hello', { exact: false }))` | [ByText](https://testing-library.com/docs/dom-testing-library/api-queries#bytext) |
-| `altText` | `getAllBy(altText('hello', { exact: false }))` | [ByAltText](https://testing-library.com/docs/dom-testing-library/api-queries#byalttext) |
-| `title` | `getAllBy(title('hello', { exact: false }))` | [ByTitle](https://testing-library.com/docs/dom-testing-library/api-queries#bytitle) |
-| `displayValue` | `getAllBy(displayValue('hello', { exact: false }))` | [ByDisplayValue](https://testing-library.com/docs/dom-testing-library/api-queries#bydisplayvalue) |
-| `role` | `getAllBy(role('tab', { selected: true }))` | [ByRole](https://testing-library.com/docs/dom-testing-library/api-queries#byrole) |
-| `testId` | `getAllBy(testId('hello', { exact: false }))` | [ByTestId](https://testing-library.com/docs/dom-testing-library/api-queries#bytestid) |
+| `text`            | `getAllBy(text('hello', { exact: false }))`            | [ByText](https://testing-library.com/docs/dom-testing-library/api-queries#bytext)                       |
+| `altText`         | `getAllBy(altText('hello', { exact: false }))`         | [ByAltText](https://testing-library.com/docs/dom-testing-library/api-queries#byalttext)                 |
+| `title`           | `getAllBy(title('hello', { exact: false }))`           | [ByTitle](https://testing-library.com/docs/dom-testing-library/api-queries#bytitle)                     |
+| `displayValue`    | `getAllBy(displayValue('hello', { exact: false }))`    | [ByDisplayValue](https://testing-library.com/docs/dom-testing-library/api-queries#bydisplayvalue)       |
+| `role`            | `getAllBy(role('tab', { selected: true }))`            | [ByRole](https://testing-library.com/docs/dom-testing-library/api-queries#byrole)                       |
+| `testId`          | `getAllBy(testId('hello', { exact: false }))`          | [ByTestId](https://testing-library.com/docs/dom-testing-library/api-queries#bytestid)                   |
 
 As a convenience another query is available as a shorthand:
 
-| Function | Description | Example |
-|----------|-------------|---------|
+| Function       | Description                                        | Example                           |
+| -------------- | -------------------------------------------------- | --------------------------------- |
 | `textFragment` | Same as `text` with `exact: false` in the options. | `getAllBy(textFragment('hello'))` |
 
 For other features, see the main [React Testing Library documentation](https://testing-library.com/docs/react-testing-library/intro).
@@ -164,7 +164,8 @@ For other features, see the main [React Testing Library documentation](https://t
 ## Writing custom queries
 
 ```javascript
-const positionInTable = (column, row) => ({ // parameters can be anything you like
+const positionInTable = (column, row) => ({
+  // parameters can be anything you like
   description: `in column ${column}, row ${row}`,
   queryAll: (container) => {
     // your query implementation here:
@@ -225,6 +226,8 @@ import type { Query } from 'flexible-testing-library-react';
 
 const tableCell = (row: number, column: number): Query => ({
   description: `in column ${column}, row ${row}`,
-  queryAll: (container): NodeListOf<HTMLElement> | HTMLElement[] => { /* implementation here */ },
+  queryAll: (container): NodeListOf<HTMLElement> | HTMLElement[] => {
+    /* implementation here */
+  },
 });
 ```

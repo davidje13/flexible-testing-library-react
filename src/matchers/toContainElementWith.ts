@@ -11,19 +11,25 @@ export function toContainElementWith(
     throw new Error('Cannot use toContainElementWith on non-element');
   }
   const element = base.container || base;
-  const expected =
-    `${this.isNot ? 'no elements' : 'an element'} ${query.description}`;
+  const expected = `${this.isNot ? 'no elements' : 'an element'} ${
+    query.description
+  }`;
 
   return {
     pass: queryAllBy(element, query).length > 0,
-    message: (): string => [
-      this.utils.matcherHint(`${this.isNot ? '.not' : ''}.toContainElementWith`, 'element', 'query'),
-      '',
-      'Expected',
-      `  ${this.utils.printExpected(expected)}`,
-      'Received',
-      `  ${this.utils.printReceived(element)}`,
-    ].join('\n'),
+    message: (): string =>
+      [
+        this.utils.matcherHint(
+          `${this.isNot ? '.not' : ''}.toContainElementWith`,
+          'element',
+          'query',
+        ),
+        '',
+        'Expected',
+        `  ${this.utils.printExpected(expected)}`,
+        'Received',
+        `  ${this.utils.printReceived(element)}`,
+      ].join('\n'),
   };
 }
 

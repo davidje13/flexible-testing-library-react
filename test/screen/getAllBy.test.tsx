@@ -6,8 +6,8 @@ describe('getAllBy', () => {
   it('returns all matching elements', () => {
     render(<TestComponent />);
     const items = screen.getAllBy(text('More text'));
-    expect(items[0].getAttribute('data-testid')).toEqual('c');
-    expect(items[1].getAttribute('data-testid')).toEqual('d');
+    expect(items[0]!.getAttribute('data-testid')).toEqual('c');
+    expect(items[1]!.getAttribute('data-testid')).toEqual('d');
   });
 
   it('is bound to render results', async () => {
@@ -18,6 +18,8 @@ describe('getAllBy', () => {
 
   it('throws if no elements are found', () => {
     render(<TestComponent />);
-    expect(() => screen.getAllBy(text('Nope'))).toThrow('Unable to find any element with');
+    expect(() => screen.getAllBy(text('Nope'))).toThrow(
+      'Unable to find any element with',
+    );
   });
 });

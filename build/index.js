@@ -1,2 +1,165 @@
-!function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t():"function"==typeof define&&define.amd?define("flexible-testing-library-react",[],t):"object"==typeof exports?exports["flexible-testing-library-react"]=t():e["flexible-testing-library-react"]=t()}(global,(function(){return function(e){var t={};function r(n){if(t[n])return t[n].exports;var o=t[n]={i:n,l:!1,exports:{}};return e[n].call(o.exports,o,o.exports,r),o.l=!0,o.exports}return r.m=e,r.c=t,r.d=function(e,t,n){r.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:n})},r.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},r.t=function(e,t){if(1&t&&(e=r(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(r.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var o in e)r.d(n,o,function(t){return e[t]}.bind(null,o));return n},r.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return r.d(t,"a",t),t},r.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},r.p="",r(r.s=5)}([function(e,t){e.exports=require("@testing-library/react")},function(e,t,r){"use strict";r.r(t),r.d(t,"queryAllBy",(function(){return i})),r.d(t,"queryBy",(function(){return c})),r.d(t,"getAllBy",(function(){return l})),r.d(t,"getBy",(function(){return f})),r.d(t,"findAllBy",(function(){return y})),r.d(t,"findBy",(function(){return a}));var n=r(0);function o(e,t){return Object(n.getElementError)([`Found multiple elements ${t.description}.`,t.multipleErrorDetail,"\n\n(If this is intentional, then use `getAllBy`, `queryAllBy` or `findAllBy`)."].filter(e=>e).join(" "),e)}function u(e){return e?Array.isArray(e)?e:Array.from(e):[]}const i=(e,t)=>u(t.queryAll(e)),c=(e,t)=>{const r=i(e,t);if(r.length>1)throw o(e,t);return r[0]||null},l=(e,t)=>{const r=u((t.getAll||t.queryAll)(e));if(!r.length)throw function(e,t){return Object(n.getElementError)([`Unable to find any element ${t.description}.`,t.missingErrorDetail].filter(e=>e).join(" "),e)}(e,t);return r},f=(e,t)=>{const r=l(e,t);if(r.length>1)throw o(e,t);return r[0]},y=(e,t,r)=>Object(n.waitFor)(()=>l(e,t),r),a=(e,t,r)=>Object(n.waitFor)(()=>f(e,t),r)},function(e,t,r){"use strict";var n=r(0),o=r(1);function u(e,t){var r=Object.keys(e);if(Object.getOwnPropertySymbols){var n=Object.getOwnPropertySymbols(e);t&&(n=n.filter((function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable}))),r.push.apply(r,n)}return r}function i(e,t,r){return t in e?Object.defineProperty(e,t,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[t]=r,e}const c="undefined"!=typeof document?document.body:void 0;let l=function(e){for(var t=1;t<arguments.length;t++){var r=null!=arguments[t]?arguments[t]:{};t%2?u(Object(r),!0).forEach((function(t){i(e,t,r[t])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(r)):u(Object(r)).forEach((function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(r,t))}))}return e}({debug:n.screen.debug},Object(n.getQueriesForElement)(c,o));c||(l=new Proxy(l,{get:(e,t)=>Object.prototype.hasOwnProperty.call(n.screen,t)?n.screen[t]:n.screen.findAllByText}));const f=l;t.a=f},function(e,t){e.exports=require("@testing-library/dom")},function(e,t,r){"use strict";r.d(t,"a",(function(){return c})),r.d(t,"c",(function(){return l})),r.d(t,"d",(function(){return f})),r.d(t,"b",(function(){return y})),r.d(t,"e",(function(){return a})),r.d(t,"f",(function(){return b})),r.d(t,"g",(function(){return d})),r.d(t,"h",(function(){return s})),r.d(t,"i",(function(){return p})),r.d(t,"j",(function(){return O}));var n=r(0);function o(e,t){var r=Object.keys(e);if(Object.getOwnPropertySymbols){var n=Object.getOwnPropertySymbols(e);t&&(n=n.filter((function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable}))),r.push.apply(r,n)}return r}function u(e){for(var t=1;t<arguments.length;t++){var r=null!=arguments[t]?arguments[t]:{};t%2?o(Object(r),!0).forEach((function(t){i(e,t,r[t])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(r)):o(Object(r)).forEach((function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(r,t))}))}return e}function i(e,t,r){return t in e?Object.defineProperty(e,t,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[t]=r,e}const c=(e,t)=>({description:"with the alt text "+e,queryAll:r=>Object(n.queryAllByAltText)(r,e,t)}),l=(e,t)=>({description:"with the value "+e,queryAll:r=>Object(n.queryAllByDisplayValue)(r,e,t)}),f=(e,t)=>({description:"with the label text "+e,queryAll:r=>Object(n.queryAllByLabelText)(r,e,t),getAll:r=>Object(n.getAllByLabelText)(r,e,t)}),y=(e,t,r)=>({description:`by [${e}=${t}]`,queryAll:o=>Object(n.queryAllByAttribute)(e,o,t,r)}),a=(e,t)=>({description:"with the placeholder text "+e,queryAll:r=>Object(n.queryAllByPlaceholderText)(r,e,t)}),b=(e,t)=>({description:"with the role "+e,queryAll:r=>Object(n.queryAllByRole)(r,e,t)}),d=(e,t)=>({description:"with the test ID "+e,queryAll:r=>Object(n.queryAllByTestId)(r,e,t)}),s=(e,t)=>({description:"with the text "+e,missingErrorDetail:["This could be because the text is broken up by multiple elements. ","In this case, you can provide a function for your text matcher ","to make your matcher more flexible."].join(""),queryAll:r=>Object(n.queryAllByText)(r,e,t)}),p=(e,t)=>s(e,u(u({},t),{},{exact:!1})),O=(e,t)=>({description:"with the title "+e,queryAll:r=>Object(n.queryAllByTitle)(r,e,t)})},function(e,t,r){e.exports=r(6)},function(e,t,r){"use strict";r.r(t),r.d(t,"render",(function(){return b}));var n=r(0),o=r(2);r.d(t,"screen",(function(){return o.a}));var u=r(1),i=r(3);for(var c in i)["default","cleanup","act","render","screen"].indexOf(c)<0&&function(e){r.d(t,e,(function(){return i[e]}))}(c);r.d(t,"cleanup",(function(){return n.cleanup})),r.d(t,"act",(function(){return n.act})),r.d(t,"queryAllBy",(function(){return u.queryAllBy})),r.d(t,"queryBy",(function(){return u.queryBy})),r.d(t,"getAllBy",(function(){return u.getAllBy})),r.d(t,"getBy",(function(){return u.getBy})),r.d(t,"findAllBy",(function(){return u.findAllBy})),r.d(t,"findBy",(function(){return u.findBy}));var l=r(4);function f(e,t){var r=Object.keys(e);if(Object.getOwnPropertySymbols){var n=Object.getOwnPropertySymbols(e);t&&(n=n.filter((function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable}))),r.push.apply(r,n)}return r}function y(e){for(var t=1;t<arguments.length;t++){var r=null!=arguments[t]?arguments[t]:{};t%2?f(Object(r),!0).forEach((function(t){a(e,t,r[t])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(r)):f(Object(r)).forEach((function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(r,t))}))}return e}function a(e,t,r){return t in e?Object.defineProperty(e,t,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[t]=r,e}function b(e,t){return Object(n.render)(e,y(y({},t),{},{queries:u}))}r.d(t,"altText",(function(){return l.a})),r.d(t,"displayValue",(function(){return l.c})),r.d(t,"labelText",(function(){return l.d})),r.d(t,"attribute",(function(){return l.b})),r.d(t,"placeholderText",(function(){return l.e})),r.d(t,"role",(function(){return l.f})),r.d(t,"testId",(function(){return l.g})),r.d(t,"text",(function(){return l.h})),r.d(t,"textFragment",(function(){return l.i})),r.d(t,"title",(function(){return l.j}))}])}));
-//# sourceMappingURL=index.js.map
+'use strict';
+
+var react = require('@testing-library/react');
+var dom = require('@testing-library/dom');
+
+function getMultipleElementsFoundError(container, query) {
+    return react.getElementError([
+        `Found multiple elements ${query.description}.`,
+        query.multipleErrorDetail,
+        '\n\n(If this is intentional, then use `getAllBy`, `queryAllBy` or `findAllBy`).',
+    ]
+        .filter((p) => p)
+        .join(' '), container);
+}
+function getNoElementFoundError(container, query) {
+    return react.getElementError([
+        `Unable to find any element ${query.description}.`,
+        query.missingErrorDetail,
+    ]
+        .filter((p) => p)
+        .join(' '), container);
+}
+function elementListToArray(elements) {
+    if (!elements) {
+        return [];
+    }
+    if (Array.isArray(elements)) {
+        return elements;
+    }
+    return Array.from(elements);
+}
+const queryAllBy = (container, query) => elementListToArray(query.queryAll(container));
+const queryBy = (container, query) => {
+    const elements = queryAllBy(container, query);
+    if (elements.length > 1) {
+        throw getMultipleElementsFoundError(container, query);
+    }
+    return elements[0] || null;
+};
+const getAllBy = (container, query) => {
+    const fn = query.getAll || query.queryAll;
+    const elements = elementListToArray(fn(container));
+    if (!elements.length) {
+        throw getNoElementFoundError(container, query);
+    }
+    return elements;
+};
+const getBy = (container, query) => {
+    const elements = getAllBy(container, query);
+    if (elements.length > 1) {
+        throw getMultipleElementsFoundError(container, query);
+    }
+    return elements[0];
+};
+const findAllBy = (container, query, waitOptions) => react.waitFor(() => getAllBy(container, query), waitOptions);
+const findBy = (container, query, waitOptions) => react.waitFor(() => getBy(container, query), waitOptions);
+
+var baseQueries = /*#__PURE__*/Object.freeze({
+    __proto__: null,
+    findAllBy: findAllBy,
+    findBy: findBy,
+    getAllBy: getAllBy,
+    getBy: getBy,
+    queryAllBy: queryAllBy,
+    queryBy: queryBy
+});
+
+const body = typeof document !== 'undefined' ? document.body : undefined;
+let screen = {
+    debug: react.screen.debug,
+    ...react.getQueriesForElement(body, baseQueries),
+};
+if (!body) {
+    screen = new Proxy(screen, {
+        get(_, key) {
+            if (Object.prototype.hasOwnProperty.call(react.screen, key)) {
+                return react.screen[key];
+            }
+            return react.screen.findAllByText;
+        },
+    });
+}
+const constScreen = screen;
+
+const altText = (value, options) => ({
+    description: `with the alt text ${value}`,
+    queryAll: (container) => react.queryAllByAltText(container, value, options),
+});
+const displayValue = (value, options) => ({
+    description: `with the value ${value}`,
+    queryAll: (container) => react.queryAllByDisplayValue(container, value, options),
+});
+const labelText = (value, options) => ({
+    description: `with the label text ${value}`,
+    queryAll: (container) => react.queryAllByLabelText(container, value, options),
+    getAll: (container) => react.getAllByLabelText(container, value, options),
+});
+// undocumented since *ByAttribute is undocumented in DOM Testing Library
+const attribute = (name, value, options) => ({
+    description: `by [${name}=${value}]`,
+    queryAll: (container) => react.queryAllByAttribute(name, container, value, options),
+});
+const placeholderText = (value, options) => ({
+    description: `with the placeholder text ${value}`,
+    queryAll: (container) => react.queryAllByPlaceholderText(container, value, options),
+});
+const role = (roleName, options) => ({
+    description: `with the role ${roleName}`,
+    queryAll: (container) => react.queryAllByRole(container, roleName, options),
+});
+const testId = (id, options) => ({
+    description: `with the test ID ${id}`,
+    queryAll: (container) => react.queryAllByTestId(container, id, options),
+});
+const text = (value, options) => ({
+    description: `with the text ${value}`,
+    missingErrorDetail: [
+        'This could be because the text is broken up by multiple elements. ',
+        'In this case, you can provide a function for your text matcher ',
+        'to make your matcher more flexible.',
+    ].join(''),
+    queryAll: (container) => react.queryAllByText(container, value, options),
+});
+const textFragment = (value, options) => text(value, { ...options, exact: false });
+const title = (value, options) => ({
+    description: `with the title ${value}`,
+    queryAll: (container) => react.queryAllByTitle(container, value, options),
+});
+
+function render(ui, options) {
+    return react.render(ui, { ...options, queries: baseQueries });
+}
+
+Object.defineProperty(exports, 'act', {
+    enumerable: true,
+    get: function () { return react.act; }
+});
+Object.defineProperty(exports, 'cleanup', {
+    enumerable: true,
+    get: function () { return react.cleanup; }
+});
+exports.altText = altText;
+exports.attribute = attribute;
+exports.displayValue = displayValue;
+exports.findAllBy = findAllBy;
+exports.findBy = findBy;
+exports.getAllBy = getAllBy;
+exports.getBy = getBy;
+exports.labelText = labelText;
+exports.placeholderText = placeholderText;
+exports.queryAllBy = queryAllBy;
+exports.queryBy = queryBy;
+exports.render = render;
+exports.role = role;
+exports.screen = constScreen;
+exports.testId = testId;
+exports.text = text;
+exports.textFragment = textFragment;
+exports.title = title;
+Object.keys(dom).forEach(function (k) {
+    if (k !== 'default' && !Object.prototype.hasOwnProperty.call(exports, k)) Object.defineProperty(exports, k, {
+        enumerable: true,
+        get: function () { return dom[k]; }
+    });
+});

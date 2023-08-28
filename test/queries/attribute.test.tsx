@@ -18,13 +18,14 @@ describe('attribute', () => {
     render(<Component />);
     const items = screen.queryAllBy(attribute('data-x', 'bar'));
     expect(items).toHaveLength(2);
-    expect(items[0].getAttribute('data-testid')).toEqual('b');
-    expect(items[1].getAttribute('data-testid')).toEqual('c');
+    expect(items[0]!.getAttribute('data-testid')).toEqual('b');
+    expect(items[1]!.getAttribute('data-testid')).toEqual('c');
   });
 
   it('shows a helpful error if no items are found', () => {
     render(<Component />);
-    expect(() => screen.getAllBy(attribute('data-x', 'Nope')))
-      .toThrow('Unable to find any element by [data-x=Nope].');
+    expect(() => screen.getAllBy(attribute('data-x', 'Nope'))).toThrow(
+      'Unable to find any element by [data-x=Nope].',
+    );
   });
 });

@@ -15,8 +15,8 @@ describe('text', () => {
     render(<Component />);
     const items = screen.queryAllBy(text('bar'));
     expect(items).toHaveLength(2);
-    expect(items[0].getAttribute('data-testid')).toEqual('b');
-    expect(items[1].getAttribute('data-testid')).toEqual('c');
+    expect(items[0]!.getAttribute('data-testid')).toEqual('b');
+    expect(items[1]!.getAttribute('data-testid')).toEqual('c');
   });
 
   it('uses exact matching by default', () => {
@@ -33,9 +33,11 @@ describe('text', () => {
 
   it('shows a helpful error if no items are found', () => {
     render(<Component />);
-    expect(() => screen.getAllBy(text('Nope'))).toThrow([
-      'Unable to find any element with the text Nope. ',
-      'This could be because the text is broken up by multiple elements.',
-    ].join(''));
+    expect(() => screen.getAllBy(text('Nope'))).toThrow(
+      [
+        'Unable to find any element with the text Nope. ',
+        'This could be because the text is broken up by multiple elements.',
+      ].join(''),
+    );
   });
 });
